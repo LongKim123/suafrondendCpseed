@@ -16,20 +16,22 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Meta tag Keywords -->
 
 <!-- css files -->
-<link rel="stylesheet" href="{{asset('login/css/style.css')}}" type="text/css" media="all" /> <!-- Style-CSS --> 
+
 <link rel="stylesheet" href="{{asset('login/css/font-awesome.css')}}"> <!-- Font-Awesome-Icons-CSS -->
 <!-- //css files -->
 
 <!-- js -->
 <script type="text/javascript" src="{{asset('login/js/jquery-2.1.4.min.js')}}"></script>
+<script src="{{asset('login/js/jquery.vide.min.js')}}"></script>
 <!-- //js -->
 
 <!-- online-fonts -->
 <link href="//fonts.googleapis.com/css?family=Oleo+Script:400,700&amp;subset=latin-ext" rel="stylesheet">
+<link rel="stylesheet" href="{{asset('login/login_css/style.css')}}" type="text/css" media="all" /> <!-- Style-CSS --> 
 <!-- //online-fonts -->
 </head>
 <body>
-<script src="{{asset('login/js/jquery.vide.min.js')}}"></script>
+
 	<!-- main -->
 	<div data-vide-bg="{{asset('login/video/Ipad')}}">
 		<div class="center-container">

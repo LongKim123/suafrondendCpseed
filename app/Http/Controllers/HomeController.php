@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Slider;
-use App\Menu;
 use App\Product;
+use App\Menu;
+use App\hr_category;
 use App\ProductImage;
 
 class HomeController extends Controller
@@ -35,8 +36,9 @@ class HomeController extends Controller
         $menu_childrent=Menu::where('parent_id',$menu_parent->id)->get();
         $sliders =Slider::where('page_id',$menu_parent->id)->first();
         $breadcrumb=array('name'=>$menu_parent);
+         $page_con=$menu_parent->slug;
        // dd($breadcrumb);
-         return view('content.introducton.general_introduction',compact('sliders','menuLimit','breadcrumb','menu_parent','menu_childrent'));
+         return view('content.introducton.general_introduction',compact('sliders','page_con','menuLimit','breadcrumb','menu_parent','menu_childrent'));
        
         
         
@@ -49,8 +51,18 @@ class HomeController extends Controller
         $menu_page=Menu::where('slug',$slug)->first();
         $sliders =Slider::where('page_id',$menu_page->id)->first();
         $breadcrumb=array($menu_parent,$menu_page);
+        $page_con=$slug;
+        if($slug=='nhan-su-chu-chot')
+        {
+            $hr_category=hr_category::get();
+             return view('content.introducton.general_introduction',compact('sliders','hr_category','page_con','menuLimit','breadcrumb','menu_childrent','menu_parent','menu_page'));
+        }
+        else{
+             return view('content.introducton.general_introduction',compact('sliders','page_con','menuLimit','breadcrumb','menu_childrent','menu_parent','menu_page'));
+        }
+
         //dd($breadcrumb);
-       return view('content.introducton.general_introduction',compact('sliders','menuLimit','breadcrumb','menu_childrent','menu_parent','menu_page'));
+      
        
         
         

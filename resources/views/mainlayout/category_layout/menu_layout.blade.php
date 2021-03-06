@@ -2,6 +2,7 @@
 @extends('mainlayout.mainlayout')
  @section('css_main')
  @yield('css')
+ @yield('css_general')
  @endsection
 @if(!isset($categoryparent) && !isset($menu_childrent) )
 @section('category_page')
@@ -9,6 +10,10 @@
 
 @endsection
 @else
+@section('meta_comments')
+@yield('meta')
+@endsection
+
 @section('category_page')
 <div class="container mt-5">
       <div class="d-flex flex-row bd-highlight mb-3 content">
